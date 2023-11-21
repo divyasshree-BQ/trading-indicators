@@ -66,10 +66,22 @@ sma = df_trade['close'].rolling(window=10).mean().iloc[9]
 print("SMA:", sma)
 
 # Calculate Daily Returns
-close_last = df_trade['close'].iloc[-1]
-close_last_1 = df_trade['close'].iloc[-2]
-daily_return = ((close_last - close_last_1) / close_last_1) * 100
-print("Daily Return:", daily_return)
+
+daily_returns = []
+for i in range(1, len(df_trade)):
+  close_last = df_trade['close'].iloc[i]
+  close_last_1 = df_trade['close'].iloc[i - 1]
+  daily_return = (close_last - close_last_1) / close_last_1 * 100
+  daily_returns.append(daily_return)
+
+print(daily_returns)
+
+# Volatility, where volatility = standard deviation of daily returns
+import numpy as np
+
+volatility = np.std(daily_returns)
+print(volatility)
+
 
 # Calculate Relative Strength Index (RSI)
 df_trade['diff_close'] = df_trade['close'].diff(1)
