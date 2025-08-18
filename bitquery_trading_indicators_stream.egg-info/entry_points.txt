@@ -1,0 +1,3 @@
+[console_scripts]
+bitquery-trading-indicators-stream = trading_indicators.cli:main
+trading-indicators = trading_indicators.cli:main

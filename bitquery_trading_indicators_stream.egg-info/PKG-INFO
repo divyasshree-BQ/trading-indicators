@@ -1,3 +1,14 @@
+Metadata-Version: 2.4
+Name: bitquery-trading-indicators-stream
+Version: 0.1.2
+Summary: Real-time trading indicators (RSI, VWAP) streamed from Bitquery GraphQL
+Author: Divyasshree
+License: MIT
+Project-URL: Homepage, https://github.com/divyasshree/trading-indicators
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: gql[websockets]<4.0.0,>=3.5.0
+
 # Streaming Crypto Trading Indicators in Real-time
 
 Real-time Token Volume,SMA,RSI and VWAP streaming from Bitquery.

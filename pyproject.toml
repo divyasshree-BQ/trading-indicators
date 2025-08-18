@@ -1,0 +1,33 @@
+[build-system]
+requires = [
+    "setuptools>=68",
+    "wheel",
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bitquery-trading-indicators-stream"
+version = "0.1.2"
+description = "Real-time trading indicators (RSI, VWAP) streamed from Bitquery GraphQL"
+readme = "README.md"
+requires-python = ">=3.7"
+license = { text = "MIT" }
+authors = [
+    { name = "Divyasshree" }
+]
+dependencies = [
+    "gql[websockets]>=3.5.0,<4.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/divyasshree/trading-indicators"
+
+[project.scripts]
+trading-indicators = "trading_indicators.cli:main"
+bitquery-trading-indicators-stream = "trading_indicators.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["trading_indicators*"]
+
+
