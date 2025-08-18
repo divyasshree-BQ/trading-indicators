@@ -1,6 +1,5 @@
 import asyncio
 from collections import defaultdict
-from typing import Optional
 
 from gql import gql
 from gql.transport.websockets import WebsocketsTransport
@@ -20,55 +19,54 @@ async def _run_stream_async(token: str, rsi_period: int = 14, vwap_period: int =
     query = gql(
         """
         subscription {
-          Trading {
-            Tokens(
-              where: {Token: {Network: {is: "Solana"}}, Interval: {Time: {Duration: {eq: 1}}}}
-            ) {
-              Token {
-                Address
-                Id
-                IsNative
-                Name
-                Network
-                Name
-                Symbol
-                TokenId
-              }
-              Block {
-                Date
-                Time
-                Timestamp
-              }
-              Interval {
-                Time {
-                  Start
-                  Duration
-                  End
-                }
-              }
-              Volume {
-                Base
-                Quote
-                Usd
-              }
-              Price {
-                IsQuotedInUsd
-                Ohlc {
-                  Close
-                  High
-                  Low
-                  Open
-                }
-                Average {
-                  ExponentialMoving
-                  Mean
-                  SimpleMoving
-                  WeightedSimpleMoving
-                }
-              }
-            }
-          }
+  Trading {
+    Tokens(where: {Interval: {Time: {Duration: {eq: 1}}}}) {
+      Token {
+        Address
+        Id
+        IsNative
+        Name
+        Network
+        Name
+        Symbol
+        TokenId
+      }
+      Block {
+        Date
+        Time
+        Timestamp
+      }
+      Interval {
+        Time {
+          Start
+          Duration
+          End
         }
+      }
+      Volume {
+        Base
+        Quote
+        Usd
+      }
+      Price {
+        IsQuotedInUsd
+        Ohlc {
+          Close
+          High
+          Low
+          Open
+        }
+        Average {
+          ExponentialMoving
+          Mean
+          SimpleMoving
+          WeightedSimpleMoving
+        }
+      }
+    }
+  }
+}
+
         """
     )
 

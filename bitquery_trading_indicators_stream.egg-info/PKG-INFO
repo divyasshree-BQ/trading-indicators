@@ -1,6 +1,6 @@
 Metadata-Version: 2.4
 Name: bitquery-trading-indicators-stream
-Version: 0.1.2
+Version: 0.1.3
 Summary: Real-time trading indicators (RSI, VWAP) streamed from Bitquery GraphQL
 Author: Divyasshree
 License: MIT
